@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cm0dwbptvghl0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_jo74o"]
+
+[node name="Node2D" type="Node2D" unique_id=252113118]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2094157057]
+modulate = Color(0.8745098, 0.34509805, 0.4392157, 0.39607844)
+position = Vector2(-211.19412, 222.0282)
+scale = Vector2(-13350.804, 10652.579)
+mesh = SubResource("QuadMesh_jo74o")
