@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b08cp1ltgn8qf"]
+
+[ext_resource type="Script" uid="uid://cnyao83eh0qo4" path="res://Script/proto_player.gd" id="1_2flv3"]
+[ext_resource type="Texture2D" uid="uid://b8xp4j78rmcat" path="res://Assets/kenney_desert-shooter-pack_1.0/PNG/Players/Tilemap/tilemap_packed.png" id="2_audqw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovmbu"]
+atlas = ExtResource("2_audqw")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti0on"]
+atlas = ExtResource("2_audqw")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8akt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovmbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti0on")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_audqw"]
+size = Vector2(20, 18.16088)
+
+[node name="Proto_Player" type="CharacterBody2D" unique_id=438156774]
+scale = Vector2(3, 3)
+script = ExtResource("1_2flv3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1003211439]
+sprite_frames = SubResource("SpriteFrames_k8akt")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1534907571]
+position = Vector2(0, 3.7887537)
+scale = Vector2(0.7057268, 0.85775083)
+shape = SubResource("RectangleShape2D_audqw")

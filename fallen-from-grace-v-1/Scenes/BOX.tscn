@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://mcfatxet4vku"]
+
+[ext_resource type="Texture2D" uid="uid://dkgdnftv7ym27" path="res://Assets/kenney_desert-shooter-pack_1.0/PNG/Tiles/Tiles/tile_0220.png" id="1_8qrkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m8kr"]
+size = Vector2(42, 47)
+
+[node name="BOX" type="StaticBody2D" unique_id=1625285936]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1241673290]
+position = Vector2(0, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("1_8qrkj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1151344055]
+position = Vector2(0, 23.5)
+shape = SubResource("RectangleShape2D_4m8kr")

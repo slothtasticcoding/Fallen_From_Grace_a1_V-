@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://cm0dwbptvghl0"]
 
+[ext_resource type="PackedScene" uid="uid://mcfatxet4vku" path="res://Scenes/BOX.tscn" id="1_obrvd"]
+[ext_resource type="PackedScene" uid="uid://b08cp1ltgn8qf" path="res://Scenes/proto_player.tscn" id="2_w4alf"]
+[ext_resource type="PackedScene" uid="uid://bjxpvwflmqkqt" path="res://Scenes/proto_enemy.tscn" id="3_4sdl8"]
+
 [sub_resource type="QuadMesh" id="QuadMesh_jo74o"]
 
 [node name="Node2D" type="Node2D" unique_id=252113118]
@@ -9,3 +13,24 @@ modulate = Color(0.8745098, 0.34509805, 0.4392157, 0.39607844)
 position = Vector2(-211.19412, 222.0282)
 scale = Vector2(-13350.804, 10652.579)
 mesh = SubResource("QuadMesh_jo74o")
+
+[node name="BOX1" parent="." unique_id=1625285936 instance=ExtResource("1_obrvd")]
+position = Vector2(-139, 140)
+
+[node name="BOX2" parent="." unique_id=137295693 instance=ExtResource("1_obrvd")]
+position = Vector2(169, -65)
+
+[node name="BOX3" parent="." unique_id=1297713551 instance=ExtResource("1_obrvd")]
+position = Vector2(-110, -7)
+
+[node name="BOX4" parent="." unique_id=1010578339 instance=ExtResource("1_obrvd")]
+position = Vector2(128, 76)
+
+[node name="Proto_Player" parent="." unique_id=438156774 instance=ExtResource("2_w4alf")]
+position = Vector2(198, 118)
+
+[node name="Camera2D" type="Camera2D" parent="Proto_Player" unique_id=1853881930]
+zoom = Vector2(3, 3)
+
+[node name="Proto_Enemy" parent="." unique_id=503652482 instance=ExtResource("3_4sdl8")]
+position = Vector2(388, -31)

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bjxpvwflmqkqt"]
+
+[ext_resource type="Script" uid="uid://r8rl38xhbddn" path="res://Script/proto_enemy.gd" id="1_hf6eh"]
+[ext_resource type="Texture2D" uid="uid://wvdbb4l3hr42" path="res://Assets/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tilemap/tilemap_packed.png" id="1_hxjdo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf6eh"]
+atlas = ExtResource("1_hxjdo")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmc5v"]
+atlas = ExtResource("1_hxjdo")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5kk5"]
+atlas = ExtResource("1_hxjdo")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ih6q0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf6eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmc5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5kk5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7k0d"]
+
+[node name="proto_enemy" type="CharacterBody2D" unique_id=1341443302]
+scale = Vector2(2, 2)
+script = ExtResource("1_hf6eh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1436076744]
+sprite_frames = SubResource("SpriteFrames_ih6q0")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1027146808]
+shape = SubResource("CircleShape2D_j7k0d")
