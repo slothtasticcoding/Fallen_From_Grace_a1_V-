@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bilmoktgupk1b"]
+
+[ext_resource type="Texture2D" uid="uid://b6tl008ahd2do" path="res://Assets/kenney_desert-shooter-pack_1.0/PNG/Weapons/Tilemap/tilemap.png" id="1_k3gxa"]
+[ext_resource type="Script" uid="uid://oj4ul0b6xd5q" path="res://Script/proto_handgun.gd" id="2_cmdjo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmdjo"]
+atlas = ExtResource("1_k3gxa")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6auu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmdjo")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Proto_Handgun" type="AnimatedSprite2D" unique_id=1193071829]
+sprite_frames = SubResource("SpriteFrames_s6auu")
+animation = &"new_animation"
+offset = Vector2(6, 0)
+script = ExtResource("2_cmdjo")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1745494450]
+position = Vector2(17, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=282491271]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

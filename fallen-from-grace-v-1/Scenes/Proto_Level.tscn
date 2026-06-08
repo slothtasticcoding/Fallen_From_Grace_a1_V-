@@ -28,6 +28,7 @@ position = Vector2(128, 76)
 
 [node name="Proto_Player" parent="." unique_id=438156774 instance=ExtResource("2_w4alf")]
 position = Vector2(198, 118)
+scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Proto_Player" unique_id=1853881930]
 zoom = Vector2(3, 3)

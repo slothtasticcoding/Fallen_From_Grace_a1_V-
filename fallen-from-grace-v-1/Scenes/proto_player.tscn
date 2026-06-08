@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnyao83eh0qo4" path="res://Script/proto_player.gd" id="1_2flv3"]
 [ext_resource type="Texture2D" uid="uid://b8xp4j78rmcat" path="res://Assets/kenney_desert-shooter-pack_1.0/PNG/Players/Tilemap/tilemap_packed.png" id="2_audqw"]
+[ext_resource type="PackedScene" uid="uid://bilmoktgupk1b" path="res://Scenes/proto_handgun.tscn" id="3_ovmbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ovmbu"]
 atlas = ExtResource("2_audqw")
@@ -28,15 +29,37 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_audqw"]
 size = Vector2(20, 18.16088)
 
-[node name="Proto_Player" type="CharacterBody2D" unique_id=438156774]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovmbu"]
+size = Vector2(20, 17.525986)
+
+[node name="Proto_Player" type="CharacterBody2D" unique_id=438156774 groups=["Player"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_2flv3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1003211439]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1003211439 groups=["Player"]]
 sprite_frames = SubResource("SpriteFrames_k8akt")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1534907571]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1534907571 groups=["Player"]]
 position = Vector2(0, 3.7887537)
 scale = Vector2(0.7057268, 0.85775083)
 shape = SubResource("RectangleShape2D_audqw")
+
+[node name="Proto_Handgun" parent="." unique_id=1193071829 groups=["Player"] instance=ExtResource("3_ovmbu")]
+position = Vector2(7.666667, 4)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1302671135]
+position = Vector2(0, 3.788754)
+scale = Vector2(0.7057268, 0.85775083)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=2079251949]
+position = Vector2(0, 1.2370067)
+shape = SubResource("RectangleShape2D_ovmbu")
+
+[node name="Timer" type="Timer" parent="." unique_id=970895556]
+wait_time = 9.223372e+18
+autostart = true
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

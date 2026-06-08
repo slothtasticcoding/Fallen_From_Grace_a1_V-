@@ -32,15 +32,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j7k0d"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hf6eh"]
+radius = 10.511898
 
-[node name="proto_enemy" type="CharacterBody2D" unique_id=1341443302]
+[node name="proto_enemy" type="CharacterBody2D" unique_id=1341443302 groups=["Enemy"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_hf6eh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1436076744]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1436076744 groups=["Enemy"]]
 sprite_frames = SubResource("SpriteFrames_ih6q0")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1027146808]
-shape = SubResource("CircleShape2D_j7k0d")
+[node name="Area2D" type="Area2D" parent="." unique_id=1462806334 groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=887821643 groups=["Enemy"]]
+shape = SubResource("CircleShape2D_hf6eh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

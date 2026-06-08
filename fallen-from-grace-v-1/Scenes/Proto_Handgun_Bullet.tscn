@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d1mmwnkdib0rg"]
+
+[ext_resource type="Script" uid="uid://bk1wprwr2i4am" path="res://Script/proto_handgun_bullet.gd" id="1_6pw6v"]
+[ext_resource type="Texture2D" uid="uid://byn5r3022va8p" path="res://Assets/kenney_desert-shooter-pack_1.0/PNG/Weapons/Tiles/tile_0033.png" id="1_do1pf"]
+[ext_resource type="Script" uid="uid://62v848w2jk1p" path="res://Script/proto_bullet_collision.gd" id="3_d0q2h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pw6v"]
+radius = 1.6872036
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1346606616 groups=["Bullet"]]
+scale = Vector2(3.226, 3)
+script = ExtResource("1_6pw6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=926079028 groups=["Bullet"]]
+texture = ExtResource("1_do1pf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=273774043 groups=["Bullet"]]
+script = ExtResource("3_d0q2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1829013295 groups=["Bullet"]]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_6pw6v")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="hit" from="Area2D" to="." method="_on_area_2d_hit"]
