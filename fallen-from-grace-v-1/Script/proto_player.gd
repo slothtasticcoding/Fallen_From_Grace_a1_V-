@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 		die()
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
+		health -= 10
 		getting_hit = true
 		print("Getting hit")
 func die():

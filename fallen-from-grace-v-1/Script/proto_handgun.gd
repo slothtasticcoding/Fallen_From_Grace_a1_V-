@@ -14,6 +14,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
+	if Global.BA == 0:
+		can_shoot = false
 	
 func Proto_Handgun_shoot() -> void:
 		if can_shoot == true:
@@ -23,6 +25,7 @@ func Proto_Handgun_shoot() -> void:
 			new_bullet.target_position = (get_global_mouse_position() - marker_2d.global_position).normalized()
 			Global.level.add_child(new_bullet)
 			can_shoot = false 
+			Global.BA -=1
 			reload.start()
 
 
